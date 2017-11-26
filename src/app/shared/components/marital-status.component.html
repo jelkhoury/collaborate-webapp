@@ -1,0 +1,11 @@
+<div class="dropdown inline" dropdown>
+    <button class="dropdown-toggle btn btn-default btn-secondary" type="button" dropdownToggle>
+        {{ statusDisplayName }}
+        <span class="caret"></span>
+    </button>
+    <ul *dropdownMenu class="dropdown-menu">
+        <li><a href="javascript:void(0)" (click)="onSelect(0)" class="dropdown-item">Unspecified</a></li>
+        <li><a href="javascript:void(0)" (click)="onSelect(1)" class="dropdown-item">Single</a></li>
+        <li><a href="javascript:void(0)" (click)="onSelect(2)" class="dropdown-item">Not Single</a></li>
+    </ul>
+</div>

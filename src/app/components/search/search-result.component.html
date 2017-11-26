@@ -1,0 +1,23 @@
+<!-- People results -->
+<div class="container">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <a data-toggle="collapse" href="#peopleList">People</a>
+            </h3>
+        </div>
+        <div id="peopleList" class="panel-collapse collapse in">
+            <ul class="list-group">
+                <li *ngFor="let user of model.users" class="list-group-item">
+                    <div class="thumbnail">
+                        <img />
+                    </div>
+                    <!-- User full name -->
+                    <p>{{user.profile.firstName}} {{user.profile.lastName}} ({{user.profile.nickname}})</p>
+                    <!-- Position/Departments -->
+                    <p>Software Developer - IT Department</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

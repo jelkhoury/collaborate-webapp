@@ -1,0 +1,143 @@
+﻿<form #f="ngForm" class="registration">
+    <fieldset>
+        <div class="row">
+            <div class="col-md-6 hidden-sm hidden-xs">
+                <div class="register-button"></div>
+            </div>
+            <div class="col-md-6 panel-group">
+                <section class="panel">
+                    <div class="panel-heading">
+                        <h3>Account Details</h3>
+                    </div>
+                    <div class="panel-body">
+                        <!-- Username -->
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" (change)="validateUsernameAvailable()" [(ngModel)]="model.username" class="form-control" name="username" placeholder="Enter Username" required>
+                            <div *ngIf="model.isValidatingUsername">
+                                <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                Validating username is available
+                            </div>
+                            <div *ngIf="!model.isUsernameAvailable" class="text-danger">Username "{{model.validatedUsername}}" is not available</div>
+                            <div *ngIf="formErrors.username" class="alert alert-danger">
+                                {{formErrors.username}}
+                            </div>
+                        </div>
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" [(ngModel)]="model.password" class="form-control" name="password" placeholder="Enter Password" required>
+                            <div *ngIf="formErrors.password" class="alert alert-danger">
+                                {{formErrors.password}}
+                            </div>
+                        </div>
+                        <!-- Confirm password -->
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" data-match="#password" [(ngModel)]="model.confirmPassword" class="form-control" name="confirmPassword" placeholder="Confirm Password" required>
+                            <div *ngIf="formErrors.confirmPassword" class="alert alert-danger">
+                                {{formErrors.confirmPassword}}
+                            </div>
+                        </div>
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" (change)="validateEmailNotUsed()" [(ngModel)]="model.email" class="form-control" name="email" placeholder="Enter Email" email required>
+                            <div *ngIf="model.isValidatingEmail">
+                                <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                Validating email...
+                            </div>
+                            <div *ngIf="model.emailOwner" class="text-danger">Email "{{model.validatedEmail}}" is already in use for account "{{model.emailOwner.username}}"</div>
+                            <div *ngIf="formErrors.email" class="alert alert-danger">
+                                {{formErrors.email}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="panel">
+                    <div class="panel-heading">
+                        <h3>Employment Info</h3>
+                    </div>
+                    <div class="panel-body">
+                        <!-- Departments -->
+                        <div class="form-group">
+                            <label for="departments">Departments</label>
+                            <sc-multi-dropdown name="departments" [allOptions]="model.departmentsOptions" [(selection)]="model.departmentIds"></sc-multi-dropdown>
+                        </div>
+                        <!-- Position -->
+                        <div class="form-group">
+                            <label for="position">Position</label>
+                            <sc-dropdown name="position" [options]="model.positionsOptions" [(selection)]="model.positionId"></sc-dropdown>
+                        </div>
+                        <!-- Employment date -->
+                        <div class="form-group">
+                            <label for="employmentDate">Employment Date</label>
+                            <sc-datepicker [class]="'form-control'" [(selectedDate)]="model.EmploymentDate" name="employmentDate"></sc-datepicker>
+                        </div>
+                    </div>
+                </section>
+                <section class="panel">
+                    <div class="panel-heading">
+                        <h3>User Info</h3>
+                    </div>
+                    <div class="panel-body">
+                        <!-- Profile Picture -->
+                        <!--<div class="form-group">
+                            <div class="image-container">
+                                <img class="profile-picture img-thumbnail" [src]="model.profilePictureUrl" alt="Profile Picture" />
+                                <div class="image-caption" (click)="pictureInput.click()">Profile Picture</div>
+                                <input type="file"
+                                       #pictureInput
+                                       ngFileSelect
+                                       style="display:none;"
+                                       (change)="uploadTempPicture()"
+                                       (uploadOutput)="onUploadOutput($event)"
+                                       [uploadInput]="uploadInput">
+                            </div>
+                        </div>-->
+                        <!-- Nickname -->
+                        <div class="form-group">
+                            <label for="nickname">Nickname</label>
+                            <input type="text" [(ngModel)]="model.nickname" class="form-control" name="nickname" placeholder="Enter a Nickname" required>
+                            <div *ngIf="formErrors.nickname" class="alert alert-danger">
+                                {{formErrors.nickname}}
+                            </div>
+                        </div>
+                        <!-- First Name -->
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" [(ngModel)]="model.firstName" class="form-control" name="firstName" placeholder="Enter First Name" required>
+                            <div *ngIf="formErrors.firstName" class="alert alert-danger">
+                                {{formErrors.firstName}}
+                            </div>
+                        </div>
+                        <!-- Last Name -->
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" [(ngModel)]="model.lastName" class="form-control" name="lastName" placeholder="Enter Last Name" required>
+                            <div *ngIf="formErrors.lastName" class="alert alert-danger">
+                                {{formErrors.lastName}}
+                            </div>
+                        </div>
+                        <!-- Gender -->
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <gender [(selectedGender)]="model.gender" name="gender"></gender>
+                        </div>
+                        <!-- Marital Status -->
+                        <div class="form-group">
+                            <label for="maritalStatus">Marital Status</label>
+                            <marital-status [(selectedStatus)]="model.maritalStatus" name="maritalStatus"></marital-status>
+                        </div>
+                        <!-- Birth date -->
+                        <div class="form-group">
+                            <label for="birthDate">Birth Date</label>
+                            <sc-datepicker [class]="'form-control'" [(selectedDate)]="model.birthDate" name="birthDate"></sc-datepicker>
+                        </div>
+                        <button type="submit" [disabled]="model.isSubmitting" (click)="onRegister()" class="btn btn-default btn-primary">Register</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,25 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Add Department</h2>
+            <div class="input-group col-md-12">
+                <input type="text" class="form-control input-md" placeholder="Add..." [(ngModel)]='departmentName' (keyup.enter)="addDepartment()" />
+                <span class="input-group-btn">
+                    <button name="addDepartment" (click)="addDepartment()" class="btn btn-info btn-md" type="button" [disabled]="!isValidForm()">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>All Departments</h2>
+            <ul class="list-group">
+                <li *ngFor="let department of departments" class="list-group-item">
+                    {{ department.name }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

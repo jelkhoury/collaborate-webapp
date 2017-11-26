@@ -1,0 +1,34 @@
+﻿
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-lg-6">
+            <p class="page-title">All Users</p>
+            <div id="custom-search-input" class="search">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Search..." [(ngModel)]="searchValue" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 " *ngFor="let user of (users | UsersPipe:searchValue)">
+            <div class="card">
+                <div class="card-block">
+                    <img class="profile-picture" [src]="getProfilePictureUrl(user.profile.pictureId)" />
+                    <p class="card-username">{{ user.username }}</p>
+                    <p class="card-name">{{ user.profile.firstName + ' ' + user.profile.lastName }}</p>
+
+                    <!--<a href="javascript:void(0)" (click)="onEditClick(user.id)" class="btn btn-primary">Edit</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

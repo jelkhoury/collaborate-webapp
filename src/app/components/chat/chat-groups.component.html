@@ -1,0 +1,39 @@
+<div class="col-md-3">
+    <!-- list of all groups -->
+    <div>
+        <h3>Groups - {{model.connectionStatus}}</h3>
+    </div>
+    <div class="list-group">
+        <a class="list-group-item" *ngFor="let group of model.groupsSummary" (click)="selectGroup(group.destinationId)" href="javascript:void(0)">
+            {{group.destinationName}} - <span style="color:red">{{group.unreadMessagesCount}}</span>
+        </a>
+    </div>
+</div>
+<div class="col-md-9">
+    <h3>Group History</h3>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <!-- group messages window -->
+            <ul #messagesList class="messages">
+                <li class="message appeared" [ngClass]="{ 'right' : message.isFromMe, 'left' : !message.isFromMe }" *ngFor="let message of model.selectedGroupHistory?.messages">
+                    <div class="text-wrapper">
+                        <div class="">{{message.sender}}</div>
+                        <div class="text">
+                            {{message.text}}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- send message button -->
+            <div class="input-group send-button">
+                <input id="messageText" type="text" [(ngModel)]="model.pendingTextMessage" (keypress)="onMessageChanged($event)" class="form-control" name="message" placeholder="Message">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <!--<i class="glyphicon glyphicon-send"></i>-->
+                        <span>Send</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

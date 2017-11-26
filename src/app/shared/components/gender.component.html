@@ -1,0 +1,10 @@
+<div class="dropdown inline" dropdown>
+    <button dropdownToggle class="dropdown-toggle btn btn-default btn-secondary" type="button" data-toggle="dropdown">
+        {{ genderDisplayName }}
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" *dropdownMenu>
+        <li><a href="javascript:void(0)" (click)="onSelect(2)" class="dropdown-item">Female</a></li>
+        <li><a href="javascript:void(0)" (click)="onSelect(1)" class="dropdown-item">Male</a></li>
+    </ul>
+</div>

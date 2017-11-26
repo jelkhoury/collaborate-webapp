@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" *ngIf="model.username">
+  <!-- Home button -->
+  <a class="navbar-brand" [routerLink]="['/']">SABIS Collaborate</a>
+  <!-- Toggler button for mobile display -->
+  <button class="navbar-toggler navbar-toggler-right"
+          type="button"
+          (click)="isNavbarCollapsed = !isNavbarCollapsed"
+          aria-controls="exCollapsingNavbar2"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- Top bar content (togglable in mobile) -->
+  <div class="collapse navbar-collapse"
+       [collapse]="isNavbarCollapsed">
+    <!-- Search bar -->
+    <form class="form-inline my-2 my-lg-0">
+      <div class="input-group">
+        <input type="text" [(ngModel)]="model.searchText" class="form-control mr-sm-2" placeholder="Search" name="q">
+        <button (click)="globalSearch()" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          <i class="fa fa-search fa-fw"></i>
+        </button>
+      </div>
+    </form>
+    <!-- Items -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Home Icon -->
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/']">
+          <i class="fa fa-home fa-fw"></i>
+          Home
+        </a>
+      </li>
+      <!-- Settings dropdown -->
+      <li class="dropdown" dropdown *ngIf="model.isAdmin">
+        <button dropdownToggle type="button" class="btn dropdown-toggle btn-transparent">
+          Management
+          <span class="caret"></span>
+        </button>
+        <ul *dropdownMenu class="dropdown-menu" role="menu">
+          <li [routerLinkActive]="['link-active']">
+            <a class="dropdown-item" [routerLink]="['/management/users']">Users</a>
+          </li>
+          <li [routerLinkActive]="['link-active']">
+            <a class="dropdown-item" [routerLink]="['/management/registration']">Registration</a>
+          </li>
+          <li [routerLinkActive]="['link-active']">
+            <a class="dropdown-item" [routerLink]="['/management/departments']">Departments</a>
+          </li>
+        </ul>
+      </li>
+      <!-- User Profile dropdown -->
+      <li class="dropdown" dropdown>
+        <button dropdownToggle type="button" class="btn dropdown-toggle btn-transparent">
+          <span class='glyphicon glyphicon-user'></span>
+          {{ model.username }}
+          <span class="caret"></span>
+        </button>
+        <ul *dropdownMenu class="dropdown-menu">
+          <li [routerLinkActive]="['link-active']"><a class="dropdown-item" [routerLink]="['/profile']">Profile</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a class="dropdown-item" href="javascript:void(0)" (click)="logout()">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--<li class="divider dropdown-divider"></li>-->

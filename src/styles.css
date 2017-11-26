@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+
+.btn-transparent {
+  background-color: transparent;
+  border: none;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+[role="main"] {
+  margin-top: 70px;
+}
+
+.btn {
+  cursor: pointer;
+}

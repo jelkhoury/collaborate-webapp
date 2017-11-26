@@ -1,0 +1,11 @@
+﻿<div class="dropdown inline">
+    <button class="dropdown-toggle btn btn-default btn-secondary" type="button" data-toggle="dropdown">
+        {{selectedOption.name}}
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li *ngFor="let option of options">
+            <a (click)="onChange(option)" href="javascript:void(0)">{{option.name}}</a>
+        </li>
+    </ul>
+</div>
