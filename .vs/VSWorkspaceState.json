@@ -5,9 +5,8 @@
     "\\src\\app",
     "\\src\\app\\components",
     "\\src\\app\\components\\profile",
-    "\\src\\app\\shared",
-    "\\src\\app\\shared\\components"
+    "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\styles.css",
+  "SelectedNode": "\\src\\app\\services\\profile.service.ts",
   "PreviewInSolutionExplorer": false
 }

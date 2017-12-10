@@ -27,6 +27,7 @@ export class MyProfileComponent implements OnInit {
 
     }
 
+    // get profile of current-user
     ngOnInit(): void {
         this._authService.getCurrentUserAsync().subscribe(u => {
             this._profileService.getProfileByUserId(u.profile.id).subscribe(up => {

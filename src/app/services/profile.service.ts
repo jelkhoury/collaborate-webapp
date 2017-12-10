@@ -1,37 +1,36 @@
-﻿import { Inject, Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Gender, MaritalStatus } from '../shared/models';
 import { Observable } from "rxjs/Rx";
 import { Http } from "@angular/http";
 
 @Injectable()
 export class ProfileService {
+  constructor( @Inject('API_URL') private _apiUrl: string, private _http: Http) {
+    
+  }
 
-    constructor( @Inject('ORIGIN_URL') private _originUrl: string, private _http: Http) {
+  getProfileByUserId(userId: number): Observable<UserProfile> {
+    var url = this._apiUrl + '/api/users/' + userId;
+    return this._http.get(url).map(r => r.json() as UserProfile);
+  }
 
+  getProfilePictureUrl(pictureId: string): string {
+    var pictureUrl = '/img/user-avatar.jpg';
+
+    if (pictureId) {
+      pictureUrl = this._apiUrl + '/api/management/profile/picture?fileId=' + pictureId;
     }
 
-    getProfileByUserId(userId: number): Observable<UserProfile> {
-        var url = this._originUrl + '/api/user/' + userId;
-        return this._http.get(url).map(r => r.json() as UserProfile);
-    }
-
-    getProfilePictureUrl(pictureId: string): string {
-        var pictureUrl = '/img/user-avatar.jpg';
-
-        if (pictureId) {
-            pictureUrl = this._originUrl + '/api/management/profile/picture?fileId=' + pictureId;
-        }
-
-        return pictureUrl;
-    }
+    return pictureUrl;
+  }
 }
 
 export class UserProfile {
-    id: number;
-    nickname: string;
-    firstName: string;
-    lastName: string;
-    gender: Gender;
-    maritalStatus: MaritalStatus;
-    birthDate: Date;
+  id: number;
+  nickname: string;
+  firstName: string;
+  lastName: string;
+  gender: Gender;
+  maritalStatus: MaritalStatus;
+  birthDate: Date;
 }
