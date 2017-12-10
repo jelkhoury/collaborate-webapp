@@ -7,8 +7,9 @@ import { HttpModule } from '@angular/http';
 import { AuthGuard } from './_guards/auth.guard';
 
 // component
-import { AppComponent } from './app.component'
-import { SigninCallbackComponent } from './components/login/signin-callback.component'
+import { AppComponent } from './app.component';
+import { AccountComponent } from './components/account/account.component';
+import { SigninCallbackComponent } from './components/login/signin-callback.component';
 import { HomeComponent } from './components/home/home.component';
 import { TopNavMenuComponent } from './components/navmenu/top-navmenu.component';
 import { ManageUsersComponent } from './components/management/users.component';
@@ -48,51 +49,52 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { CollapseModule } from 'ngx-bootstrap';
 
 @NgModule({
-    bootstrap: [AppComponent],
-    declarations: [
-        AppComponent,
-        //LoginComponent,
-        SigninCallbackComponent,
-        HomeComponent,
-        MyProfileComponent,
-        TopNavMenuComponent,
-        ManageUsersComponent,
-        ManageDepartmentsComponent,
-        RegistrationComponent,
-        GenderComponent,
-        MaritalStatusComponent,
-        DropdownComponent,
-        MultiDropdownComponent,
-        DatepickerComponent,
-        SearchResultComponent,
-        ChatGroupsComponent,
-        UsersPipe,
-        SilentRenewCallbackComponent
-    ],
-    providers: [
-        AuthGuard,
-        RegistrationService,
-        LocalizationService,
-        AuthenticationService,
-        SystemService,
-        ChatService,
-        { provide: 'ORIGIN_URL', useValue: location.origin },
-        { provide: 'API_URL', useValue: "http://localhost:5559" }
-    ],
-    imports: [
-        HttpModule,
-        AppRoutingModule,
-        FormsModule,
-        MultiselectDropdownModule,
-        //Ng2DatetimePickerModule,
-        //NgUploaderModule,
-        BrowserAnimationsModule,
-        BsDropdownModule.forRoot(),
-        CollapseModule.forRoot(),
-        TooltipModule.forRoot(),
-        ModalModule.forRoot()
-        //SimpleNotificationsModule.forRoot()
-    ]
+  bootstrap: [AppComponent],
+  declarations: [
+    AppComponent,
+    AccountComponent,
+    //LoginComponent,
+    SigninCallbackComponent,
+    HomeComponent,
+    MyProfileComponent,
+    TopNavMenuComponent,
+    ManageUsersComponent,
+    ManageDepartmentsComponent,
+    RegistrationComponent,
+    GenderComponent,
+    MaritalStatusComponent,
+    DropdownComponent,
+    MultiDropdownComponent,
+    DatepickerComponent,
+    SearchResultComponent,
+    ChatGroupsComponent,
+    UsersPipe,
+    SilentRenewCallbackComponent
+  ],
+  providers: [
+    AuthGuard,
+    RegistrationService,
+    LocalizationService,
+    AuthenticationService,
+    SystemService,
+    ChatService,
+    { provide: 'ORIGIN_URL', useValue: location.origin },
+    { provide: 'API_URL', useValue: "http://localhost:5559" }
+  ],
+  imports: [
+    HttpModule,
+    AppRoutingModule,
+    FormsModule,
+    MultiselectDropdownModule,
+    //Ng2DatetimePickerModule,
+    //NgUploaderModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
+    CollapseModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
+    //SimpleNotificationsModule.forRoot()
+  ]
 })
 export class AppModule {
 

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-4">
+    <h2>Account</h2>
+    <hr />
+    <form>
+      <!-- Current Password -->
+      <div class="form-group">
+        <label for="currentPassword">Current Password</label>
+        <input type="password" required name="currentPassword" class="form-control" (ngModel)="accountSettings.currentPassword" />
+      </div>
+      <!-- New Password -->
+      <div class="form-group">
+        <label for="newPassword">New Password</label>
+        <input type="password" required name="newPassword" class="form-control" (ngModel)="accountSettings.newPassword" />
+      </div>
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" required name="confirmPassword" class="form-control" (ngModel)="accountSettings.confirmPassword" />
+      </div>
+      <!-- Update Password -->
+      <button type="button" [disabled]="isSaving" (click)="changePassword()" class="btn btn-primary">Change Password</button>
+    </form>
+  </div>
+</div>

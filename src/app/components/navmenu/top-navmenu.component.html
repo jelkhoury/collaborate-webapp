@@ -37,14 +37,14 @@
           <span class="caret"></span>
         </button>
         <ul *dropdownMenu class="dropdown-menu" role="menu">
-          <li [routerLinkActive]="['link-active']">
-            <a class="dropdown-item" [routerLink]="['/management/users']">Users</a>
+          <li routerLinkActive="link-active">
+            <a class="dropdown-item" routerLink="/management/users">Users</a>
           </li>
-          <li [routerLinkActive]="['link-active']">
-            <a class="dropdown-item" [routerLink]="['/management/registration']">Registration</a>
+          <li routerLinkActive="link-active">
+            <a class="dropdown-item" routerLink="/management/registration">Registration</a>
           </li>
-          <li [routerLinkActive]="['link-active']">
-            <a class="dropdown-item" [routerLink]="['/management/departments']">Departments</a>
+          <li routerLinkActive="link-active">
+            <a class="dropdown-item" routerLink="/management/departments">Departments</a>
           </li>
         </ul>
       </li>
@@ -56,7 +56,10 @@
           <span class="caret"></span>
         </button>
         <ul *dropdownMenu class="dropdown-menu">
-          <li [routerLinkActive]="['link-active']"><a class="dropdown-item" [routerLink]="['/profile']">Profile</a></li>
+          <!-- routerLink : Lets you link to specific parts of your app. -->
+          <!-- routerLinkActive : adds the 'related' CSS class to the element when the associated RouterLink becomes active -->
+          <li routerLinkActive="link-active"><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+          <li routerLinkActive="link-active"><a class="dropdown-item" routerLink="/account">Account</a></li>
           <li role="separator" class="divider"></li>
           <li><a class="dropdown-item" href="javascript:void(0)" (click)="logout()">Logout</a></li>
         </ul>

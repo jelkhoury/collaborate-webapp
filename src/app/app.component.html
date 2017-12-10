@@ -1,9 +1,12 @@
-<div *ngIf="!isFromSignin">
+<!-- top nav-menu -->
+<div *ngIf="!isSigninCallback">
   <top-nav-menu></top-nav-menu>
 </div>
+<!-- content of the applciation goes below -->
 <main role="main" class='container-fluid'>
   <div class="row">
     <div class="col-md-12 body-content">
+      <!-- Acts as a placeholder that Angular dynamically fills based on the current router state -->
       <router-outlet></router-outlet>
     </div>
   </div>

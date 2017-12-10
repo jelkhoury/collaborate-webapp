@@ -6,7 +6,7 @@ import { Http } from "@angular/http";
 @Injectable()
 export class ProfileService {
   constructor( @Inject('API_URL') private _apiUrl: string, private _http: Http) {
-    
+
   }
 
   getProfileByUserId(userId: number): Observable<UserProfile> {
@@ -22,6 +22,13 @@ export class ProfileService {
     }
 
     return pictureUrl;
+  }
+
+  updatePassword(currentPassword: string, newPassword: string): Observable<boolean> {
+    var url = this._apiUrl + '/api/account/credentials';
+
+    return this._http.put(url, { current: currentPassword, new: newPassword })
+      .map(r => r.json() as boolean);
   }
 }
 

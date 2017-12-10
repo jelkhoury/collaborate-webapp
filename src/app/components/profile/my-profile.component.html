@@ -1,82 +1,53 @@
 <div class="row">
-  <!--<div class="col-md-4">
-    <div class="form-group">
-        <div class="image-container">
-            <img class="profile-picture img-thumbnail" [src]="model.profilePictureUrl" alt="Profile Picture" />
-            <div class="image-caption" (click)="pictureInput.click()">Profile Picture</div>
-            <input type="file"
-                   #pictureInput
-                   ngFileSelect
-                   style="display:none;"
-                   (change)="uploadTempPicture()"
-                   (uploadOutput)="onUploadOutput($event)"
-                   [uploadInput]="uploadInput">
-        </div>
-    </div>
-  </div>-->
-  <div class="col-md-4">
-    <h2>My Profile</h2>
+  <div class="col-md-12">
+    <h2 class="page-title">My Profile</h2>
     <hr />
-    <!-- First Name -->
-    <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input type="text" [(ngModel)]="model.firstName" class="form-control" name="firstName" placeholder="Enter First Name" required>
-      <div *ngIf="formErrors.firstName" class="alert alert-danger">
-        {{formErrors.firstName}}
-      </div>
-    </div>
-    <!-- Last Name -->
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input type="text" [(ngModel)]="model.lastName" class="form-control" name="lastName" placeholder="Enter Last Name" required>
-      <div *ngIf="formErrors.lastName" class="alert alert-danger">
-        {{formErrors.lastName}}
-      </div>
-    </div>
-    <!-- Nickname -->
-    <div class="form-group">
-      <label for="nickname">Nickname</label>
-      <input type="text" [(ngModel)]="model.nickname" class="form-control" name="nickname" placeholder="Enter a Nickname" required>
-      <div *ngIf="formErrors.nickname" class="alert alert-danger">
-        {{formErrors.nickname}}
-      </div>
-    </div>
-    <!-- Gender -->
-    <div class="form-group">
-      <label for="gender">Gender</label>
-      <gender [(selectedGender)]="model.gender" name="gender"></gender>
-    </div>
-    <!-- Marital Status -->
-    <div class="form-group">
-      <label for="maritalStatus">Marital Status</label>
-      <marital-status [(selectedStatus)]="model.maritalStatus" name="maritalStatus"></marital-status>
-    </div>
-    <!-- Birth date -->
-    <div class="form-group">
-      <label for="birthDate">Birth Date</label>
-      <sc-datepicker [class]="'form-control'" [(selectedDate)]="model.birthDate" name="birthDate"></sc-datepicker>
-    </div>
-    <button type="submit" [disabled]="model.isSubmitting" (click)="updateProfile()" class="btn btn-default btn-primary">Update Profile</button>
-  </div>
-  <div class="col-md-4">
-    <h2>Account</h2>
-    <hr />
-    <!-- Current Password -->
-    <div class="form-group">
-      <label for="currentPassword">Current Password</label>
-      <input type="text" name="currentPassword" class="form-control" (ngModel)="accountSettings.currentPassword" />
-    </div>
-    <!-- New Password -->
-    <div class="form-group">
-      <label for="newPassword">New Password</label>
-      <input type="text" name="newPassword" class="form-control" (ngModel)="accountSettings.newPassword" />
-    </div>
-    <!-- Confirm Password -->
-    <div class="form-group">
-      <label for="confirmPassword">Confirm Password</label>
-      <input type="text" name="confirmPassword" class="form-control" (ngModel)="accountSettings.confirmPassword" />
-    </div>
-    <!-- Update Password -->
-    <button type="button" (click)="changePassword()" class="btn btn-primary">Change Password</button>
   </div>
 </div>
+
+<form>
+  <div class="row">
+    <div class="col-md-4">
+      <!-- First Name -->
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" [(ngModel)]="model.firstName" class="form-control" name="firstName" placeholder="Enter First Name" required>
+        <div *ngIf="formErrors.firstName" class="alert alert-danger">
+          {{formErrors.firstName}}
+        </div>
+      </div>
+      <!-- Last Name -->
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" [(ngModel)]="model.lastName" class="form-control" name="lastName" placeholder="Enter Last Name" required>
+        <div *ngIf="formErrors.lastName" class="alert alert-danger">
+          {{formErrors.lastName}}
+        </div>
+      </div>
+      <!-- Nickname -->
+      <div class="form-group">
+        <label for="nickname">Nickname</label>
+        <input type="text" [(ngModel)]="model.nickname" class="form-control" name="nickname" placeholder="Enter a Nickname" required>
+        <div *ngIf="formErrors.nickname" class="alert alert-danger">
+          {{formErrors.nickname}}
+        </div>
+      </div>
+      <!-- Gender -->
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <gender [(selectedGender)]="model.gender" name="gender"></gender>
+      </div>
+      <!-- Marital Status -->
+      <div class="form-group">
+        <label for="maritalStatus">Marital Status</label>
+        <marital-status [(selectedStatus)]="model.maritalStatus" name="maritalStatus"></marital-status>
+      </div>
+      <!-- Birth date -->
+      <div class="form-group">
+        <label for="birthDate">Birth Date</label>
+        <sc-datepicker [class]="'form-control'" [(selectedDate)]="model.birthDate" name="birthDate"></sc-datepicker>
+      </div>
+      <button type="submit" [disabled]="model.isSubmitting" (click)="updateProfile()" class="btn btn-default btn-primary">Update Profile</button>
+    </div>
+  </div>
+</form>
