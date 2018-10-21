@@ -24,7 +24,7 @@ export class ProfileService {
     return pictureUrl;
   }
 
-  updatePassword(currentPassword: string, newPassword: string): Observable<boolean> {
+  changePassword(currentPassword: string, newPassword: string): Observable<boolean> {
     var url = this._apiUrl + '/api/account/credentials';
 
     return this._http.put(url, { current: currentPassword, new: newPassword })

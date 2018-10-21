@@ -5,9 +5,8 @@
     "\\src\\app",
     "\\src\\app\\components",
     "\\src\\app\\components\\account",
-    "\\src\\app\\components\\profile",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\components\\account\\account.component.html",
+  "SelectedNode": "\\src\\app\\components\\account\\account.component.ts",
   "PreviewInSolutionExplorer": false
 }

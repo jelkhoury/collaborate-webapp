@@ -32,7 +32,7 @@ export class AccountComponent {
     this.isSaving = true;
     var self = this;
 
-    this._profileService.updatePassword(this.accountSettings.currentPassword, this.accountSettings.newPassword).subscribe(o => {
+    this._profileService.changePassword(this.accountSettings.currentPassword, this.accountSettings.newPassword).subscribe(o => {
       self.isSaving = false;
     });
   }
